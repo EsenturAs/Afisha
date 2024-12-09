@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/directors/', views.director_list_view),
     path('api/v1/movies/', views.movie_list_view),
+    path('api/v1/movies/reviews/', views.reviews_for_movie_list_view),
     path('api/v1/reviews/', views.review_list_view),
     path('api/v1/directors/<int:id>/', views.movie_detail_view),
     path('api/v1/movies/<int:id>/', views.movie_detail_view),

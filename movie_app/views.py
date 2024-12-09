@@ -26,7 +26,7 @@ def movie_list_view(request):
 
 @api_view(http_method_names=['GET'])
 def review_list_view(request):
-    reviews = models.Director.objects.all()
+    reviews = models.Review.objects.all()
     serializer = serializers.ReviewSerializer(instance=reviews, many=True)
     return Response(data=serializer.data, status=status.HTTP_200_OK)
 
@@ -50,3 +50,10 @@ def movie_detail_view(request, id):
     review = models.Review.objects.get(id=id)
     data = serializers.ReviewSerializer(review).data
     return Response(data=data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def reviews_for_movie_list_view(request):
+    movies = models.Movie.objects.all()
+    serializer = serializers.ReviewsForMovie(instance=movies, many=True)
+    return Response(data=serializer.data, status=status.HTTP_200_OK)
