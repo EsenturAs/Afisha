@@ -1,9 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.views import generic
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, generics, pagination, views
-from django.forms import model_to_dict
 from . import models, serializers
 
 
